@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Basic Movement Female — Robin Picture Graphic</title>
+<meta name="description" content="Complete female character animation set for Unreal Engine 5. Walk, run, crouch, jump, roll and more — 269 animations included."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* ── page-specific ── */
+.video-wrap{
+  position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+  border:1px solid var(--border);background:var(--s1);
+}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+
+.anim-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);
+}
+.anim-card{
+  background:var(--s1);padding:1.5rem 1.75rem;
+  transition:background 0.2s;
+}
+.anim-card:hover{background:var(--s2)}
+.anim-count{
+  font-family:var(--display);font-size:2rem;font-weight:800;
+  color:var(--gold);line-height:1;margin-bottom:0.4rem;
+}
+.anim-label{font-size:13px;color:var(--soft)}
+
+.anim-list{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:0;border:1px solid var(--border);
+}
+.anim-list-item{
+  display:flex;align-items:baseline;gap:1rem;
+  padding:1rem 1.5rem;border-bottom:1px solid var(--border);
+  border-right:1px solid var(--border);
+  font-size:13.5px;color:var(--soft);
+  transition:background 0.15s;
+}
+.anim-list-item:hover{background:var(--s2)}
+.anim-list-item .num{
+  font-family:var(--display);font-size:11px;font-weight:700;
+  color:var(--border);min-width:28px;
+}
+.anim-list-item strong{color:var(--text);font-weight:500}
+
+.image-row{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);overflow:hidden;
+}
+.image-row-item{overflow:hidden;aspect-ratio:16/10}
+.image-row-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+.image-row-item:hover img{transform:scale(1.04)}
+
+.compat-bar{
+  display:flex;gap:1px;background:var(--border);
+  border:1px solid var(--border);
+}
+.compat-item{
+  flex:1;background:var(--s1);padding:1.25rem 1.5rem;text-align:center;
+}
+.compat-item .label{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.4rem;font-family:var(--display)}
+.compat-item .value{font-size:15px;font-weight:600;font-family:var(--display);color:var(--text)}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<!-- PAGE HEADER -->
+<div style="border-bottom:1px solid var(--border)">
+  <div class="page-header">
+    <div class="page-eyebrow">Product</div>
+    <h1 class="page-title">Basic Movement Female</h1>
+    <p class="page-desc">An animation set that brings your female characters to life with style and grace. Ideal for adventure, action, and RPG — also perfect for NPC characters to enhance the overall player experience.</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.75rem">
+      <a class="btn-primary" href="https://www.fab.com/listings/f903e60f-a637-429e-97ec-33722971b1d1" target="_blank">Buy on FAB</a>
+      <a class="btn-secondary" href="https://drive.google.com/file/d/1ZdaNpgK0gjzgt8y84PpmEABGJRZmM4BS/view?usp=sharing" target="_blank">Download Free Demo</a>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO -->
+<div class="section">
+  <div class="section-eyebrow">Preview</div>
+  <div class="video-wrap">
+    <iframe src="https://www.youtube.com/embed/cA9A4M_uwvE" title="Basic Movement Female Animation" allowfullscreen loading="lazy"></iframe>
+  </div>
+</div>
+
+<!-- STATS -->
+<div style="border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--s2)">
+  <div style="max-width:1060px;margin:0 auto;padding:0 3rem">
+    <div class="compat-bar" style="border-left:none;border-right:none;border-top:none;border-bottom:none">
+      <div class="compat-item"><div class="label">UE5 Animations</div><div class="value">269</div></div>
+      <div class="compat-item"><div class="label">UE4 Animations</div><div class="value">67</div></div>
+      <div class="compat-item"><div class="label">Poses</div><div class="value">25</div></div>
+      <div class="compat-item"><div class="label">UE Version</div><div class="value">5.2+</div></div>
+      <div class="compat-item"><div class="label">Blueprint</div><div class="value">ALS v4</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ANIMATION COUNTS -->
+<div class="section">
+  <div class="section-eyebrow">Animation counts</div>
+  <div class="anim-grid">
+    <div class="anim-card"><div class="anim-count">3</div><div class="anim-label">Base poses</div></div>
+    <div class="anim-card"><div class="anim-count">4</div><div class="anim-label">Stance & crouch variation poses</div></div>
+    <div class="anim-card"><div class="anim-count">7</div><div class="anim-label">Secondary motion (Breathing)</div></div>
+    <div class="anim-card"><div class="anim-count">14</div><div class="anim-label">Jump animations</div></div>
+    <div class="anim-card"><div class="anim-count">70</div><div class="anim-label">Run — 10 direction Start/Loop/Stop/Pivot</div></div>
+    <div class="anim-card"><div class="anim-count">2</div><div class="anim-label">Sprint animations</div></div>
+    <div class="anim-card"><div class="anim-count">70</div><div class="anim-label">Walk — 10 direction Start/Loop/Stop/Pivot</div></div>
+    <div class="anim-card"><div class="anim-count">70</div><div class="anim-label">Crouch walk — 10 direction S/L/S/Pivot</div></div>
+    <div class="anim-card"><div class="anim-count">4</div><div class="anim-label">Locomotion acceleration</div></div>
+    <div class="anim-card"><div class="anim-count">8</div><div class="anim-label">Locomotion poses</div></div>
+    <div class="anim-card"><div class="anim-count">10</div><div class="anim-label">Lean poses</div></div>
+    <div class="anim-card"><div class="anim-count">6</div><div class="anim-label">Transition animations</div></div>
+    <div class="anim-card"><div class="anim-count">12</div><div class="anim-label">Turn animations</div></div>
+    <div class="anim-card"><div class="anim-count">3</div><div class="anim-label">Look sweep animations</div></div>
+    <div class="anim-card"><div class="anim-count">4</div><div class="anim-label">Get-up animations</div></div>
+    <div class="anim-card"><div class="anim-count">4</div><div class="anim-label">Roll animations — 4 directions</div></div>
+    <div class="anim-card"><div class="anim-count">3</div><div class="anim-label">Mantle animations</div></div>
+  </div>
+
+  <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap">
+    <a class="btn-secondary" href="https://drive.google.com/open?id=10jcoaNa5wozwSBAX2_zADZW_JsVyhBXgT3eKXXYMNtM" target="_blank">Full animation list (Google Doc)</a>
+    <a class="btn-primary" href="https://www.fab.com/listings/f903e60f-a637-429e-97ec-33722971b1d1" target="_blank">Buy on FAB</a>
+  </div>
+</div>
+
+<!-- IMAGES -->
+<div style="border-top:1px solid var(--border)">
+  <div class="section">
+    <div class="section-eyebrow">In-engine screenshots</div>
+    <div class="image-row">
+      <div class="image-row-item">
+        <img src="https://static.wixstatic.com/media/488316_f978b1016e4345289bfbb3eeb888606a~mv2.jpg/v1/crop/x_628,y_0,w_860,h_1080/fill/w_600,h_462,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/pic00-2.jpg" alt="Character animation screenshot 1"/>
+      </div>
+      <div class="image-row-item">
+        <img src="https://static.wixstatic.com/media/488316_32810562351c4e7c95b2864ee996c049~mv2.png/v1/crop/x_736,y_122,w_538,h_676/fill/w_600,h_462,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/pic01-2.png" alt="Character animation screenshot 2"/>
+      </div>
+      <div class="image-row-item">
+        <img src="https://static.wixstatic.com/media/488316_c382072b912c4fbcb1129ee460ebbb0b~mv2.png/v1/crop/x_862,y_0,w_860,h_1080/fill/w_600,h_462,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/pic02-2.png" alt="Character animation screenshot 3"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA STRIP -->
+<div style="background:var(--s2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3.5rem 2rem;text-align:center">
+  <p style="font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem">Ready to integrate?</p>
+  <h2 style="font-family:var(--display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;margin-bottom:0.75rem">Get the full animation pack</h2>
+  <p style="font-size:14px;color:var(--soft);max-width:440px;margin:0 auto 2rem">Available now on Unreal Engine FAB Marketplace. Includes FBX files and full ALS blueprint support.</p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+    <a class="btn-primary" href="https://www.fab.com/listings/f903e60f-a637-429e-97ec-33722971b1d1" target="_blank">Buy on FAB Store</a>
+    <a class="btn-secondary" href="blueprint-guides.html">Blueprint Setup Guide</a>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="nav.js"></script>
+</body>
+</html>

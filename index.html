@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="RobinPictureGraphic Game motion and animation for Unreal Engine 5. Perfect for bringing your female character to life with style and grace."/>
+<meta property="og:title" content="Robin Picture Graphic | Game Animation Production"/>
+<meta property="og:description" content="Professional 3D animation packs for Unreal Engine 5. Female character locomotion, ALS blueprint support, FBX included."/>
+<title>Robin Picture Graphic | Game Animation Production</title>
+<link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0A0A0E;
+  --s1:#111118;
+  --s2:#18181F;
+  --s3:#22222C;
+  --border:#2C2C3A;
+  --text:#EDEAE2;
+  --muted:#6E6E88;
+  --soft:#A0A0B8;
+  --gold:#D4A853;
+  --display:'Syne',sans-serif;
+  --body:'Inter',sans-serif;
+}
+html{font-family:var(--body);background:var(--bg);color:var(--text);font-size:15px;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 3rem;
+  background:rgba(10,10,14,0.95);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(12px);
+}
+.logo{display:flex;align-items:center;gap:0.75rem}
+.logo img{width:38px;height:38px;border-radius:6px;object-fit:cover}
+.logo-text{font-family:var(--display);font-size:15px;font-weight:700;letter-spacing:0.02em}
+.logo-text span{color:var(--gold)}
+.nav-links{display:flex;gap:2rem;font-size:13px;color:var(--muted)}
+.nav-links a{transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
+.nav-buy{
+  font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:0.1em;
+  text-transform:uppercase;background:var(--gold);color:#0A0A0E;
+  border:none;padding:0.55rem 1.4rem;cursor:pointer;transition:opacity 0.2s;
+}
+.nav-buy:hover{opacity:0.85}
+@media(max-width:768px){
+  nav{padding:1rem 1.25rem}
+  .nav-links{display:none}
+}
+
+/* HERO */
+.hero{
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;padding:6rem 2rem 5rem;
+}
+.hero-glow{
+  position:absolute;top:-80px;left:50%;transform:translateX(-50%);
+  width:700px;height:400px;
+  background:radial-gradient(ellipse,rgba(155,127,232,0.13) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-chip{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--gold);border:1px solid rgba(212,168,83,0.35);
+  padding:0.4rem 1.1rem;margin-bottom:2rem;
+}
+.hero-chip-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+h1{
+  font-family:var(--display);
+  font-size:clamp(2.4rem,5.5vw,4.6rem);
+  font-weight:800;line-height:1.06;letter-spacing:-0.025em;
+  max-width:760px;margin-bottom:1.25rem;
+}
+h1 em{font-style:italic;color:var(--gold);font-weight:600}
+.hero-desc{
+  font-size:15.5px;color:var(--soft);line-height:1.75;
+  max-width:520px;margin:0 auto 2.5rem;font-weight:300;
+}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.75rem}
+.btn-primary{
+  font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:0.08em;
+  text-transform:uppercase;background:var(--gold);color:#0A0A0E;
+  border:none;padding:0.85rem 2.2rem;cursor:pointer;transition:opacity 0.2s;
+}
+.btn-primary:hover{opacity:0.82}
+.btn-secondary{
+  font-family:var(--display);font-size:13px;font-weight:500;letter-spacing:0.06em;
+  background:transparent;color:var(--soft);border:1px solid var(--border);
+  padding:0.85rem 2.2rem;cursor:pointer;transition:all 0.2s;
+}
+.btn-secondary:hover{border-color:var(--soft);color:var(--text)}
+.hero-tags{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.hero-tags span::before{content:'✓ ';color:var(--gold)}
+
+/* IMAGE STRIP */
+.img-strip{
+  display:flex;gap:0;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+.img-strip-item{
+  flex:1;position:relative;overflow:hidden;
+  aspect-ratio:2/3;max-height:360px;
+}
+.img-strip-item img{
+  width:100%;height:100%;object-fit:cover;
+  filter:saturate(0.85) brightness(0.9);
+  transition:transform 0.5s ease,filter 0.3s;
+}
+.img-strip-item:hover img{transform:scale(1.04);filter:saturate(1) brightness(1)}
+.img-strip-item:not(:last-child){border-right:1px solid var(--border)}
+.img-strip-label{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:1.5rem 1.25rem 1rem;
+  background:linear-gradient(transparent,rgba(10,10,14,0.88));
+  font-family:var(--display);font-size:13px;font-weight:600;color:var(--text);
+}
+.img-strip-label small{
+  display:block;font-size:11px;color:var(--muted);
+  font-weight:400;margin-bottom:0.25rem;font-family:var(--body);
+}
+@media(max-width:600px){
+  .img-strip{flex-wrap:wrap}
+  .img-strip-item{flex:1 1 50%;max-height:200px}
+}
+
+/* SECTIONS */
+.section{max-width:1060px;margin:0 auto;padding:5rem 2rem}
+.section-eyebrow{
+  font-family:var(--display);font-size:10.5px;font-weight:700;
+  letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);
+  display:flex;align-items:center;gap:0.75rem;margin-bottom:2.5rem;
+}
+.section-eyebrow::after{content:'';flex:none;width:40px;height:1px;background:var(--border)}
+
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:1px;background:var(--border);
+}
+.card{
+  background:var(--s1);padding:2rem 1.75rem;
+  display:flex;flex-direction:column;gap:0.75rem;
+  transition:background 0.2s;
+}
+.card:hover{background:var(--s2)}
+.card-num{font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:0.15em;color:var(--muted)}
+.card-title{font-family:var(--display);font-size:15.5px;font-weight:700;line-height:1.3}
+.card-body{font-size:13px;color:var(--soft);line-height:1.7;flex:1}
+.card-cta{
+  display:inline-flex;align-items:center;gap:0.35rem;
+  font-family:var(--display);font-size:11.5px;font-weight:600;
+  letter-spacing:0.06em;color:var(--gold);margin-top:0.5rem;
+  transition:gap 0.2s;
+}
+.card-cta:hover{gap:0.65rem}
+.card-cta::after{content:'→'}
+
+/* DEMO STRIP */
+.demo-strip{
+  background:var(--s2);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:4rem 2rem;text-align:center;
+}
+.demo-strip h2{
+  font-family:var(--display);font-size:clamp(1.6rem,3vw,2.1rem);
+  font-weight:700;margin-bottom:0.75rem;
+}
+.demo-strip p{
+  font-size:14px;color:var(--soft);margin-bottom:2rem;
+  max-width:420px;margin-left:auto;margin-right:auto;
+}
+.demo-note{font-size:11.5px;color:var(--muted);margin-top:1rem;letter-spacing:0.03em}
+
+/* NEWS */
+.news-grid{border:1px solid var(--border)}
+.news-row{
+  display:grid;grid-template-columns:110px 1fr;
+  border-bottom:1px solid var(--border);
+  transition:background 0.15s;
+}
+.news-row:last-child{border-bottom:none}
+.news-row:hover{background:var(--s2)}
+.news-date{
+  font-family:var(--display);font-size:11px;font-weight:700;
+  letter-spacing:0.08em;color:var(--gold);
+  padding:1.25rem 1.5rem;border-right:1px solid var(--border);
+  display:flex;align-items:center;
+}
+.news-content{
+  padding:1.25rem 1.5rem;font-size:13.5px;
+  color:var(--soft);display:flex;align-items:center;
+}
+.news-content strong{color:var(--text);font-weight:500;margin-right:0.4rem}
+@media(max-width:480px){
+  .news-row{grid-template-columns:1fr}
+  .news-date{border-right:none;border-bottom:1px solid var(--border);padding:0.75rem 1.25rem}
+  .news-content{padding:0.75rem 1.25rem}
+}
+
+/* FOOTER */
+.footer-wrap{border-top:1px solid var(--border);background:var(--s1)}
+footer{
+  max-width:1060px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  gap:2rem;padding:2.5rem 2rem;
+}
+.footer-logo{font-family:var(--display);font-size:17px;font-weight:700}
+.footer-logo span{color:var(--gold)}
+.footer-copy{font-size:11.5px;color:var(--muted);margin-top:0.3rem}
+.footer-nav{display:flex;gap:1.5rem;font-size:12.5px;color:var(--muted);flex-wrap:wrap}
+.footer-nav a:hover{color:var(--text)}
+.footer-socials{display:flex;gap:0.75rem}
+.soc{
+  width:34px;height:34px;border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;color:var(--muted);
+  transition:border-color 0.2s,color 0.2s;
+}
+.soc:hover{border-color:var(--gold);color:var(--gold)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <img src="https://static.wixstatic.com/media/488316_b3b11ac11bd940b08bc36788330957ce~mv2.png/v1/fill/w_56,h_56,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_RPG2.png" alt="RobinPG logo"/>
+    <div class="logo-text">Robin<span>PG</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="https://oorsupicha.wixsite.com/robinpg/basic-movement">Basic Movement</a>
+    <a href="https://oorsupicha.wixsite.com/robinpg/blueprint-and-guides">Blueprint &amp; Guides</a>
+    <a href="https://oorsupicha.wixsite.com/robinpg/contact-us">Contact Us</a>
+  </div>
+  <button class="nav-buy" onclick="window.open('https://www.fab.com/listings/f903e60f-a637-429e-97ec-33722971b1d1','_blank')">Buy on FAB</button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-chip"><span class="hero-chip-dot"></span>Available Now · Unreal Engine 5</div>
+  <h1>Game Motion &amp;<br><em>Animation</em> Production</h1>
+  <p class="hero-desc">Perfect for bringing your female character to life with style and grace. Walk, run, crouch, jump, roll — every move covered.</p>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="window.open('https://www.fab.com/listings/f903e60f-a637-429e-97ec-33722971b1d1','_blank')">Buy Now on FAB</button>
+    <button class="btn-secondary" onclick="window.open('https://drive.google.com/file/d/1ZdaNpgK0gjzgt8y84PpmEABGJRZmM4BS/view?usp=sharing','_blank')">Download Free Demo</button>
+  </div>
+  <div class="hero-tags">
+    <span>Female character animations</span>
+    <span>ALS Blueprint system</span>
+    <span>FBX included</span>
+    <span>UE5 ready</span>
+  </div>
+</div>
+
+<!-- IMAGE STRIP -->
+<div class="img-strip">
+  <div class="img-strip-item">
+    <img src="https://static.wixstatic.com/media/488316_181d88b80de443e38e8d1ba284f438f4~mv2.png/v1/fill/w_550,h_307,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/488316_181d88b80de443e38e8d1ba284f438f4~mv2.png" alt="Animation preview"/>
+    <div class="img-strip-label"><small>Product</small>Basic Movement Pack</div>
+  </div>
+  <div class="img-strip-item">
+    <img src="https://static.wixstatic.com/media/488316_f978b1016e4345289bfbb3eeb888606a~mv2.jpg/v1/crop/x_628,y_0,w_860,h_1080/fill/w_302,h_462,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/pic00-2.jpg" alt="Demo preview"/>
+    <div class="img-strip-label"><small>Free Download</small>Demo Project</div>
+  </div>
+  <div class="img-strip-item">
+    <img src="https://static.wixstatic.com/media/488316_32810562351c4e7c95b2864ee996c049~mv2.png/v1/crop/x_736,y_122,w_538,h_676/fill/w_302,h_462,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/pic01-2.png" alt="Product detail"/>
+    <div class="img-strip-label"><small>Explore</small>Animation List</div>
+  </div>
+  <div class="img-strip-item">
+    <img src="https://static.wixstatic.com/media/488316_c382072b912c4fbcb1129ee460ebbb0b~mv2.png/v1/crop/x_862,y_0,w_860,h_1080/fill/w_302,h_462,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/pic02-2.png" alt="Blueprint guide"/>
+    <div class="img-strip-label"><small>Guides</small>Blueprint &amp; ALS</div>
+  </div>
+</div>
+
+<!-- FEATURE CARDS -->
+<div class="section">
+  <div class="section-eyebrow">What's included</div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-num">01</div>
+      <div class="card-title">Basic Movement Pack</div>
+      <div class="card-body">Complete female locomotion — walk, run, crouch, jump, roll, pivot, start/stop, landing, secondary motion and more. Designed for ALS integration.</div>
+      <a class="card-cta" href="https://oorsupicha.wixsite.com/robinpg/basic-movement">View animations</a>
+    </div>
+    <div class="card">
+      <div class="card-num">02</div>
+      <div class="card-title">Free Demo Download</div>
+      <div class="card-body">Try before you buy. A free UE5 project package so you can experience the animations live in-engine on Windows OS before purchasing.</div>
+      <a class="card-cta" href="https://drive.google.com/file/d/1ZdaNpgK0gjzgt8y84PpmEABGJRZmM4BS/view?usp=sharing">Download Demo.rar</a>
+    </div>
+    <div class="card">
+      <div class="card-num">03</div>
+      <div class="card-title">Blueprint &amp; Guides</div>
+      <div class="card-body">New to ALS? Step-by-step guides walk you through every part of the blueprint system so you can get up and running without confusion.</div>
+      <a class="card-cta" href="https://oorsupicha.wixsite.com/robinpg/blueprint-and-guides">Read the guide</a>
+    </div>
+    <div class="card">
+      <div class="card-num">04</div>
+      <div class="card-title">Active Updates</div>
+      <div class="card-body">This pack is actively maintained with new animation clips, bug fixes, and UE5 compatibility updates. Buy once, receive updates for free.</div>
+      <a class="card-cta" href="https://www.fab.com/listings/f903e60f-a637-429e-97ec-33722971b1d1">See on FAB</a>
+    </div>
+  </div>
+</div>
+
+<!-- DEMO CTA -->
+<div class="demo-strip">
+  <h2>Try it before you buy it</h2>
+  <p>Download a free Unreal Engine 5 project and experience the full animation set running in real time.</p>
+  <button class="btn-primary" onclick="window.open('https://drive.google.com/file/d/1ZdaNpgK0gjzgt8y84PpmEABGJRZmM4BS/view?usp=sharing','_blank')">Download Demo.rar</button>
+  <div class="demo-note">Windows OS · Unreal Engine 5 · Free, no account needed</div>
+</div>
+
+<!-- NEWS -->
+<div class="section">
+  <div class="section-eyebrow">News &amp; Product Updates</div>
+  <div class="news-grid">
+    <div class="news-row">
+      <div class="news-date">10 Jul 25</div>
+      <div class="news-content"><strong>Bug fix —</strong> Basic Movement Female: Mantle System blueprint issue resolved.</div>
+    </div>
+    <div class="news-row">
+      <div class="news-date">15 Jan 25</div>
+      <div class="news-content"><strong>New animations —</strong> 6 more secondary motion clips, new landing animations. Version update.</div>
+    </div>
+    <div class="news-row">
+      <div class="news-date">28 Nov 24</div>
+      <div class="news-content"><strong>Locomotion update —</strong> 10-direction locomotion and 3-direction rolling added.</div>
+    </div>
+    <div class="news-row">
+      <div class="news-date">29 Oct 24</div>
+      <div class="news-content"><strong>Movement system —</strong> Locomotion Start/Loop/Stop L-R and Pivot L-R animations added.</div>
+    </div>
+    <div class="news-row">
+      <div class="news-date">08 Jun 24</div>
+      <div class="news-content"><strong>Launch —</strong> Basic Movement Female released on Unreal Marketplace.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer-wrap">
+  <footer>
+    <div>
+      <div class="footer-logo">Robin<span>PG</span></div>
+      <div class="footer-copy">© 2024 Robin Picture Graphic. All rights reserved.</div>
+    </div>
+    <div class="footer-nav">
+      <a href="#">Home</a>
+      <a href="https://oorsupicha.wixsite.com/robinpg/basic-movement">Basic Movement</a>
+      <a href="https://oorsupicha.wixsite.com/robinpg/blueprint-and-guides">Blueprints</a>
+      <a href="https://oorsupicha.wixsite.com/robinpg/contact-us">Contact</a>
+    </div>
+    <div class="footer-socials">
+      <a class="soc" href="https://www.facebook.com/RobinPictureGraphic" target="_blank" title="Facebook">f</a>
+      <a class="soc" href="https://discord.gg/TkSjBUFa" target="_blank" title="Discord">⌘</a>
+      <a class="soc" href="https://www.youtube.com/@RobinPG" target="_blank" title="YouTube">▶</a>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

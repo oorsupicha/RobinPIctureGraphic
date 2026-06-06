@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FAQs — Robin Picture Graphic</title>
+<meta name="description" content="Frequently asked questions about the Basic Movement Female animation set for Unreal Engine 5."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.faq-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--border)}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{
+  width:100%;background:var(--s1);border:none;text-align:left;
+  padding:1.5rem 2rem;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  transition:background 0.2s;
+}
+.faq-q:hover{background:var(--s2)}
+.faq-q.open{background:var(--s2)}
+.faq-q-text{
+  font-family:var(--display);font-size:14.5px;font-weight:600;
+  color:var(--text);line-height:1.4;text-align:left;
+}
+.faq-icon{
+  flex-shrink:0;width:22px;height:22px;
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;color:var(--muted);transition:transform 0.25s,color 0.2s;
+}
+.faq-q.open .faq-icon{transform:rotate(45deg);color:var(--gold)}
+.faq-a{
+  display:none;padding:0 2rem 1.5rem;
+  font-size:13.5px;color:var(--soft);line-height:1.8;
+  border-top:1px solid var(--border);background:var(--s2);
+}
+.faq-a.open{display:block}
+.faq-a p+p{margin-top:0.75rem}
+.faq-a a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+.faq-a ol{padding-left:1.5rem;margin-top:0.5rem}
+.faq-a ol li{margin-bottom:0.4rem}
+
+.related-links{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1px;background:var(--border);border:1px solid var(--border);
+  margin-top:3rem;
+}
+.related-card{
+  background:var(--s1);padding:1.5rem 1.75rem;
+  display:flex;flex-direction:column;gap:0.5rem;transition:background 0.2s;
+}
+.related-card:hover{background:var(--s2)}
+.related-card-label{font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;font-family:var(--display)}
+.related-card-title{font-family:var(--display);font-size:14px;font-weight:700;color:var(--text)}
+.related-card-link{font-size:12px;color:var(--gold);margin-top:0.5rem;display:flex;align-items:center;gap:0.35rem}
+.related-card-link::after{content:'→'}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<!-- PAGE HEADER -->
+<div style="border-bottom:1px solid var(--border)">
+  <div class="page-header">
+    <div class="page-eyebrow">Support</div>
+    <h1 class="page-title">Frequently Asked Questions</h1>
+    <p class="page-desc">Wondering about something? We've got you covered. If you can't find your answer here, reach out via Discord or email.</p>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section">
+  <div class="section-eyebrow">Common questions</div>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">What is included in the Basic Movement Female Animation Set?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Our animation set includes the following movements for female models: walk, run, crouch, jump, and roll animations. It also includes poses for Blend Space and Animation Montage.</p>
+        <p>The animation files also include animation curves and notifies compatible with the ALS blueprint, allowing you to easily replace files for seamless use.</p>
+        <p><a href="blueprint-guides.html">How to install ALS and RPG blueprint →</a></p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">What Unreal Engine version is the animation set compatible with?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Our Animation Set is fully optimised for <strong style="color:var(--text)">Unreal Engine 5.2 and above</strong>. A UE4 version with 67 animations is also included in the package.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Can these animations be used with any female character model?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Absolutely. Our animations are designed to be used with a wide range of female character models. Minor adjustments may be required to fit specific character proportions.</p>
+        <p>We also provide a <strong style="color:var(--text)">Retarget Blueprint</strong> for you to easily use the animations in your Character Blueprint.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">How do I import these animations into my Unreal Engine project?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>To import the animations, simply follow these steps:</p>
+        <ol>
+          <li>Open your Epic Games Library</li>
+          <li>Find "Basic Movement Female" in the Vault section</li>
+          <li>Click <strong style="color:var(--text)">Add to project</strong></li>
+          <li>Select the project you want to add the animations to</li>
+        </ol>
+        <p style="margin-top:0.75rem"><a href="blueprint-guides.html">Full blueprint setup guide →</a></p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Do I need any additional software to use these animations?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>No additional software is required to use these animations — <strong style="color:var(--text)">Unreal Engine is all you need</strong>. The ALS blueprint is also free to download from the Unreal Marketplace.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Do you offer support if I encounter issues?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Yes, we provide customer support for any issues you encounter. You can reach us via:</p>
+        <p>• <strong style="color:var(--text)">Discord:</strong> <a href="https://discord.gg/TkSjBUFa" target="_blank">discord.gg/TkSjBUFa</a></p>
+        <p>• <strong style="color:var(--text)">Email:</strong> <a href="mailto:robinpicturegraphic@gmail.com">robinpicturegraphic@gmail.com</a></p>
+        <p style="margin-top:0.75rem"><a href="contact.html">Go to contact page →</a></p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggle(this)">
+        <span class="faq-q-text">Is there a refund policy if I'm not satisfied?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>We're sorry to hear that you'd like a refund. We strive to improve and ensure your satisfaction. Please refer to Epic's official refund policies:</p>
+        <p>• <a href="https://www.epicgames.com/site/en-US/store-refund-policy" target="_blank">Epic Games Store Refund Policy →</a></p>
+        <p>• <a href="https://www.epicgames.com/help/en-US/c-Category_BillingSupport/c-EpicGamesStore/how-to-refund-an-epic-games-store-purchase-a000084827" target="_blank">How to refund an Epic Games Store purchase →</a></p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RELATED LINKS -->
+  <div class="related-links">
+    <a class="related-card" href="basic-movement.html">
+      <div class="related-card-label">Product</div>
+      <div class="related-card-title">Basic Movement Female</div>
+      <div class="related-card-link">View animations</div>
+    </a>
+    <a class="related-card" href="blueprint-guides.html">
+      <div class="related-card-label">Documentation</div>
+      <div class="related-card-title">Blueprint & Guides</div>
+      <div class="related-card-link">Read the guide</div>
+    </a>
+    <a class="related-card" href="contact.html">
+      <div class="related-card-label">Support</div>
+      <div class="related-card-title">Contact Us</div>
+      <div class="related-card-link">Get in touch</div>
+    </a>
+    <a class="related-card" href="https://www.fab.com/listings/f903e60f-a637-429e-97ec-33722971b1d1" target="_blank">
+      <div class="related-card-label">Marketplace</div>
+      <div class="related-card-title">Buy on FAB Store</div>
+      <div class="related-card-link">Go to FAB</div>
+    </a>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="nav.js"></script>
+<script>
+function toggle(btn){
+  const ans=btn.nextElementSibling;
+  const isOpen=btn.classList.contains('open');
+  document.querySelectorAll('.faq-q.open').forEach(b=>{b.classList.remove('open');b.nextElementSibling.classList.remove('open')});
+  if(!isOpen){btn.classList.add('open');ans.classList.add('open')}
+}
+</script>
+</body>
+</html>

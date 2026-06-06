@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Blueprint & Guides — Robin Picture Graphic</title>
+<meta name="description" content="Step-by-step guide to installing the ALS Blueprint and RPG BasicMove blueprint in your Unreal Engine 5 project."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.steps{display:flex;flex-direction:column;gap:0;border:1px solid var(--border)}
+.step{
+  display:grid;grid-template-columns:64px 1fr;
+  border-bottom:1px solid var(--border);
+}
+.step:last-child{border-bottom:none}
+.step-num{
+  background:var(--s2);border-right:1px solid var(--border);
+  display:flex;align-items:flex-start;justify-content:center;
+  padding:1.75rem 0;
+  font-family:var(--display);font-size:18px;font-weight:800;color:var(--gold);
+}
+.step-body{padding:1.75rem 2rem;background:var(--s1);transition:background 0.15s}
+.step:hover .step-body{background:var(--s2)}
+.step-title{font-family:var(--display);font-size:15px;font-weight:700;margin-bottom:0.5rem}
+.step-desc{font-size:13.5px;color:var(--soft);line-height:1.7;margin-bottom:1rem}
+.step-img{
+  width:100%;border:1px solid var(--border);margin-top:1rem;
+  filter:brightness(0.95);transition:filter 0.2s;
+}
+.step-img:hover{filter:brightness(1)}
+
+.info-box{
+  background:var(--s2);border:1px solid var(--border);
+  border-left:3px solid var(--gold);
+  padding:1.25rem 1.5rem;margin-bottom:1.5rem;
+}
+.info-box p{font-size:13.5px;color:var(--soft);line-height:1.7}
+.info-box p+p{margin-top:0.75rem}
+
+.tip-box{
+  background:var(--s2);border:1px solid var(--border);
+  border-left:3px solid #5A9B6B;
+  padding:1.25rem 1.5rem;margin-top:2rem;
+}
+.tip-box .tip-label{
+  font-family:var(--display);font-size:10px;font-weight:700;
+  letter-spacing:0.2em;text-transform:uppercase;color:#5A9B6B;margin-bottom:0.5rem;
+}
+.tip-box p{font-size:13.5px;color:var(--soft);line-height:1.7}
+
+.video-wrap{
+  position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+  border:1px solid var(--border);background:var(--s1);margin:1.5rem 0;
+}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+
+.folder-list{
+  background:var(--s1);border:1px solid var(--border);
+  padding:1.25rem 1.5rem;font-family:monospace;font-size:13px;
+  color:var(--soft);line-height:2;
+}
+.folder-list .folder{color:var(--gold)}
+.folder-list .file{color:var(--soft);padding-left:1.5rem}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<!-- PAGE HEADER -->
+<div style="border-bottom:1px solid var(--border)">
+  <div class="page-header">
+    <div class="page-eyebrow">Documentation</div>
+    <h1 class="page-title">Blueprint & Guides</h1>
+    <p class="page-desc">New to the ALS Blueprint System? This guide walks you through every step — from downloading the base blueprint to getting your character running in Unreal Engine 5.</p>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="section">
+  <div class="section-eyebrow">About the blueprint</div>
+  <div class="info-box">
+    <p>The blueprint and guides we provide are designed to show how our products work in Unreal Engine. Our blueprint is based on the <strong style="color:var(--text)">Advanced Locomotion System V4</strong> by LongmireLocomotion, available free on the Unreal Engine Marketplace. We do not hold rights or ownership of that blueprint.</p>
+    <p>We provide the <strong style="color:var(--text)">child blueprint</strong> for the animations — it contains the specific animation sequences and adjustments. To use this set you must first obtain the main ALS blueprint which includes the fundamental character movement logic. Our child blueprint enhances and customises those base functionalities.</p>
+  </div>
+  <div style="display:flex;gap:1rem;flex-wrap:wrap">
+    <a class="btn-secondary" href="https://discord.com/invite/wYYMHFu" target="_blank">Advanced Locomotion Community Discord</a>
+  </div>
+</div>
+
+<!-- WHAT YOU NEED -->
+<div style="border-top:1px solid var(--border)">
+  <div class="section">
+    <div class="section-eyebrow">What you need</div>
+
+    <!-- STEP 1 -->
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Get Advanced Locomotion System V4 (free)</div>
+          <div class="step-desc">Download the main ALS blueprint for free from the FAB Marketplace. This is the foundation your animations will run on.</div>
+          <a class="btn-primary" href="https://www.fab.com/listings/ef9651a4-fb55-4866-a2d9-1b38b028f9c7" target="_blank" style="font-size:12px;padding:0.6rem 1.4rem">Get ALS V4 on FAB (free)</a>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Download our RPG_BasicMove_Blueprint (child blueprint)</div>
+          <div class="step-desc">Download our child ALS blueprint package. It includes:</div>
+          <div class="folder-list">
+            <div class="folder">📁 RPG_BasicMove_BP/</div>
+            <div class="file">├── Character Blueprint</div>
+            <div class="file">├── Animation Blueprint</div>
+            <div class="file">├── Retarget Blueprint</div>
+            <div class="file">└── Input keys (Input_ALS)</div>
+          </div>
+          <a class="btn-primary" href="https://drive.google.com/file/d/17En96oKDUSNlccwvqcVCbVcNmENE4n9L/view?usp=sharing" target="_blank" style="font-size:12px;padding:0.6rem 1.4rem;margin-top:1rem">Download RPG BasicMove Blueprint V2</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INSTALL STEPS -->
+<div style="border-top:1px solid var(--border)">
+  <div class="section">
+    <div class="section-eyebrow">Installation steps</div>
+
+    <div style="margin-bottom:1.5rem">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/AenW3Cra8fc" title="How to install ALS and setup RPG Blueprint" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:0.5rem;text-align:center">Video walkthrough: How to install ALS and setup RPG Blueprint</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Get ALS V4 and create a new ALS project</div>
+          <div class="step-desc">Download Advanced Locomotion System V4 from FAB and create a new project using the ALS template.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Migrate ALS_GameMode_SP to your project</div>
+          <div class="step-desc">Open the ALS project. Migrate <code style="background:var(--s3);padding:0.1rem 0.4rem;font-size:12px;color:var(--gold)">ALS_GameMode_SP</code> to your project's <code style="background:var(--s3);padding:0.1rem 0.4rem;font-size:12px;color:var(--gold)">Content</code> folder.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Hard-import the RPG_BasicMove_BP folder</div>
+          <div class="step-desc">Import our <code style="background:var(--s3);padding:0.1rem 0.4rem;font-size:12px;color:var(--gold)">RPG_BasicMove_BP</code> folder into your project's Content folder. Your Content folder should now contain these 3 folders:</div>
+          <div class="folder-list" style="margin-top:0.75rem">
+            <div class="folder">📁 AdvancedLocomotionV4</div>
+            <div class="folder">📁 RPG_BasicMove</div>
+            <div class="folder">📁 RPG_BasicMove_BP</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Import the Input_ALS key settings</div>
+          <div class="step-desc">In your project, go to: <code style="background:var(--s3);padding:0.1rem 0.4rem;font-size:12px;color:var(--gold)">Edit &gt; Project Settings &gt; Engine Input &gt; Import…</code> (top right) and import the <code style="background:var(--s3);padding:0.1rem 0.4rem;font-size:12px;color:var(--gold)">Input_ALS</code> file we provide.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">Add 3 new enumerators to ALS_OverlayState</div>
+          <div class="step-desc">Go to the <code style="background:var(--s3);padding:0.1rem 0.4rem;font-size:12px;color:var(--gold)">ALS_OverlayState</code> Enumerator and add 3 new entries:</div>
+          <div class="folder-list" style="margin-top:0.75rem">
+            <div class="file" style="padding-left:0">+ Normal_A</div>
+            <div class="file" style="padding-left:0">+ Normal_B</div>
+            <div class="file" style="padding-left:0">+ Normal_C</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <div class="step-title">Compile and check the RPG blueprint</div>
+          <div class="step-desc">Open <code style="background:var(--s3);padding:0.1rem 0.4rem;font-size:12px;color:var(--gold)">BP_RPG_FemaleUE5_CH</code> and compile. Check that the <code style="background:var(--s3);padding:0.1rem 0.4rem;font-size:12px;color:var(--gold)">Switch on ALS_OverlayState</code> node is properly connected to the 3 new enumerators (Normal_A, Normal_B, Normal_C).</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-body">
+          <div class="step-title">Set GameMode in World Details — and you're done!</div>
+          <div class="step-desc">In your level's World Details, set:</div>
+          <div class="folder-list" style="margin-top:0.75rem">
+            <div class="file" style="padding-left:0">GameMode Override → <span style="color:var(--gold)">ALS_GameMode_SP</span></div>
+            <div class="file" style="padding-left:0">Default Pawn Class → <span style="color:var(--gold)">BP_RPG_FemaleUE5_CH</span> (or UE4 version)</div>
+          </div>
+          <p style="margin-top:1rem;font-size:14px;color:var(--gold);font-family:var(--display);font-weight:700">Enjoy the experience! 🎮</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TIP -->
+<div style="border-top:1px solid var(--border)">
+  <div class="section">
+    <div class="section-eyebrow">Tip & Trick</div>
+    <div class="tip-box">
+      <div class="tip-label">Known Issue — Camera Jiggle</div>
+      <p><strong style="color:var(--text)">Problem:</strong> The camera jiggles while the character is falling near a platform or ledge.</p>
+      <p style="margin-top:0.5rem"><strong style="color:var(--text)">Solution:</strong> Add camera sockets on the head skeleton of the character:</p>
+      <div class="folder-list" style="margin-top:0.75rem;background:transparent;border:none;padding:0">
+        <div class="file" style="padding-left:0">• FP_Camera</div>
+        <div class="file" style="padding-left:0">• TP_CameraTrace_R</div>
+        <div class="file" style="padding-left:0">• TP_CameraTrace_L</div>
+      </div>
+    </div>
+    <div style="margin-top:2rem">
+      <p style="font-size:13.5px;color:var(--soft);margin-bottom:1rem">Still having trouble? Reach out via Discord or email — we're happy to help.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap">
+        <a class="btn-secondary" href="https://discord.gg/TkSjBUFa" target="_blank">Join Discord</a>
+        <a class="btn-secondary" href="contact.html">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="nav.js"></script>
+</body>
+</html>
