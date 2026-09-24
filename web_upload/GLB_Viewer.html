@@ -999,6 +999,9 @@ if (params.get('ui') === 'min') {                        // ?ui=min for small pr
   $('#aside').style.display = 'none';
   document.querySelector('header.top').style.display = 'none';
 }
+if (params.get('lock') === '1') {                        // ?lock=1: keep the clip list, hide the pack menu
+  packSel.style.display = 'none';                        // so a product page only shows its own pack
+}
 setPlaying(true);
 window.__viewerReady = true;
 </script>
