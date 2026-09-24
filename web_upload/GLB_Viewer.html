@@ -690,7 +690,7 @@ function frameModel() {
     key.target.position.set(0, 0, 0);        // follow() moves this; a new model resets it
     key.target.updateMatrixWorld();
   }
-  setView(params.get('view') || 'three');
+  setView(params.get('view') || 'front');          // default camera: front (override with ?view=)
 }
 
 function setView(which) {
