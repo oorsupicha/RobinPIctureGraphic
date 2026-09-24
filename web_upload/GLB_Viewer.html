@@ -203,7 +203,7 @@ input[type=range]::-moz-range-thumb{width:13px;height:13px;border:2px solid var(
       </div>
 
       <div class="tools">
-        <button class="btn icon on" id="spinBtn" title="Auto turntable (T)">↻</button>
+        <button class="btn icon" id="spinBtn" title="Auto turntable (T)">↻</button>
         <button class="btn icon on" id="gridBtn" title="Grid &amp; floor (G)">▦</button>
         <button class="btn icon on" id="followBtn" title="Follow the character (F) — keeps a travelling clip in frame">◎</button>
         <button class="btn icon" id="boneBtn" title="Skeleton (B)">⛓</button>
@@ -376,7 +376,7 @@ scene.add(floor);
 /* ---------- state ---------- */
 let modelRoot = null, mixer = null, skelHelper = null;
 let clips = [], action = null, activeClip = -1;
-let playing = true, looping = true, speed = 1;
+let playing = false, looping = true, speed = 1;   // starts paused on frame 0
 let scrubbing = false;
 let currentPack = null, radius = 1;
 let loadToken = 0;                         // ignores a load you navigated away from
@@ -730,7 +730,7 @@ function renderClipList() {
     b.className = 'clip' + (i === activeClip ? ' on' : '');
     b.innerHTML = '<span class="nm"></span><span class="dur">' + c.duration.toFixed(2) + 's</span>';
     b.querySelector('.nm').textContent = label(c.name);
-    b.addEventListener('click', () => { playClip(i); if (innerWidth <= 820) $('#aside').classList.remove('open'); });
+    b.addEventListener('click', () => { playClip(i); setPlaying(true); if (innerWidth <= 820) $('#aside').classList.remove('open'); });
     list.appendChild(b);
   });
 }
@@ -834,7 +834,7 @@ function readTime() {
 /* ---------- toggles ---------- */
 const toggle = (btn, fn) => $(btn).addEventListener('click', (e) => { fn(e.currentTarget.classList.toggle('on')); markDirty(); });
 toggle('#spinBtn', (on) => controls.autoRotate = on);
-controls.autoRotate = true;
+controls.autoRotate = false;                 // turntable starts OFF (T or the ↻ button turns it on)
 toggle('#gridBtn', (on) => floor.visible = on);
 toggle('#followBtn', (on) => follow = on);
 toggle('#boneBtn', (on) => {
@@ -1002,7 +1002,7 @@ if (params.get('ui') === 'min') {                        // ?ui=min for small pr
 if (params.get('lock') === '1') {                        // ?lock=1: keep the clip list, hide the pack menu
   packSel.style.display = 'none';                        // so a product page only shows its own pack
 }
-setPlaying(true);
+setPlaying(false);                                       // no autoplay: press Play, Space, or pick a clip
 window.__viewerReady = true;
 </script>
 </body>
